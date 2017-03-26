@@ -1,0 +1,69 @@
+header nav{
+    margin: 0px !important;
+}
+
+header.custom-header{
+    padding: 12px;
+    padding-left: 6px;
+    background: black;
+    color: white;
+    margin-bottom: 16px;
+}
+.affix{
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.23);
+    top: 20px;
+    z-index: 10000;
+}
+
+.error{
+    color: red;
+}
+
+.current{
+    background: #f3f3f3;
+}
+
+.current a, .list-group-item.active{
+    cursor: none;
+}
+
+.img-square{
+    max-width: fit-content;
+    object-fit: scale-down;
+}
+
+.img-256{
+    width: 256px;
+    height: 256px;
+}
+.img-128{
+    width: 128px;
+    height: 128px;
+}
+.img-96{
+    width: 96px;
+    height: 96px;
+}
+.img-72{
+    width: 72px;
+    height: 72px;
+}
+.img-48{
+    width: 48px;
+    height: 48px;
+}
+.zoom-img-mandeep:hover{
+    transform: scale(2.5);
+    position: relative;
+    left: 20px;
+}
+
+.container-fluid{
+    padding-top: 24px;
+}
+
+.lakshay{
+    padding: 20px;
+}
