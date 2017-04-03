@@ -23,11 +23,11 @@ $object->init_members();
                 </div>
             <?php endif; ?>
             <input id="redirect_url" name="redirect_url" type="hidden" readonly value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-4">
                 <label class="col-form-label" for="number">Title</label>
                 <input id="title" name="title" class="form-control" type="text" required value="<?php echo $object->title; ?>"/>
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-4">
                 <label class="col-form-label" for="type">Type</label>
                 <select class="form-control" name="type">
                     <?php
@@ -37,19 +37,26 @@ $object->init_members();
                     ?>
                 </select>
             </div>
-            <div class="form-group col-md-5">
+
+            <div class="form-group col-md-2">
                 <label class="col-form-label" for="number">Number</label>
                 <input id="number" name="number" class="form-control" type="number" required value="<?php echo $object->number; ?>"/>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-2">
                 <label class="col-form-label" for="floor">Floor</label>
                 <input id="floor" name="floor" class="form-control" type="number" required value="<?php echo $object->floor; ?>"/>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label class="col-form-label" for="capacity">Capacity</label>
                 <input id="capacity" name="capacity" class="form-control" type="number" required value="<?php echo $object->capacity; ?>"/>
             </div>
-            <div class="form-group col-md-6">
+
+            <div class="form-group col-md-4">
+                <label class="col-form-label" for="charges">Charges</label>
+                <input id="charges" name="charges" class="form-control" type="number" required value="<?php echo $object->charges; ?>"/>
+            </div>
+
+            <div class="form-group col-md-4">
                 <label class="col-form-label" for="available">Available</label>
                 <input id="available" name="available" class="form-control" type="number" required value="<?php echo $object->available; ?>"/>
             </div>

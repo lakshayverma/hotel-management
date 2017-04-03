@@ -23,8 +23,8 @@ class Invoice extends DatabaseObject {
         }
     }
 
-    public function ammount() {
-        return $this->amount_payable + " (" + $this->total_amount + ")";
+    public function amount() {
+        return "$this->amount_payable ($this->total_amount)";
     }
 
     public static function find_for_booking($booking) {
@@ -48,6 +48,7 @@ class Invoice extends DatabaseObject {
         $invoice = new Invoice();
         $orders_in = Order_booking::find_completed_for_booking($booking);
         $invoice->total_amount = $orders_in['bill'];
+        $invoice->amount_payable = $orders_in['bill'];
         return $invoice;
     }
 

@@ -14,6 +14,7 @@ class Order_booking extends DatabaseObject {
     public $accountObj, $bookingObj;
     public $contents;
     public $bill;
+    public $final_check;
 
     public static function make($account, $booking) {
         $obj = new Order_booking();
@@ -42,10 +43,10 @@ class Order_booking extends DatabaseObject {
     }
 
     public static function find_for_booking($booking) {
-        return Order_booking::find_sq($booking);
+        return Order_booking::find_sq($booking, FALSE);
     }
 
-    private static function find_sq($booking, $onlyDelivered = FALSE) {
+    private static function find_sq($booking, $onlyDelivered) {
         if (!$booking->id) {
             return false;
         }
@@ -56,11 +57,8 @@ class Order_booking extends DatabaseObject {
         $bill = 0;
         while ($row = current($db_rows)) {
             $row->bookingObj = $booking;
-            if ($onlyDelivered) {
-                $row->update_orders();
-            } else {
-                $row->init_members();
-            }
+            $row->final_check = $onlyDelivered;
+            $row->init_members();
             $response[] = $row;
             $bill += $row->bill;
             next($db_rows);
@@ -81,16 +79,14 @@ class Order_booking extends DatabaseObject {
         }
 
         if (!$this->contents) {
-            $response_contents = Order_contents::find_for_order($this);
+            if ($this->final_check) {
+                $response_contents = Order_contents::find_delivered($this);
+            } else {
+                $response_contents = Order_contents::find_for_order($this);
+            }
             $this->contents = $response_contents["orders"];
             $this->bill = $response_contents["bill"];
         }
-    }
-
-    public function update_orders() {
-        $response_contents = Order_contents::find_delivered($this);
-        $this->contents = $response_contents["orders"];
-        $this->bill = $response_contents["bill"];
     }
 
     public function name() {

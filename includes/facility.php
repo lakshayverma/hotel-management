@@ -6,7 +6,7 @@ require_once(LIB_PATH . DS . "database.php");
 class Facility extends DatabaseObject {
 
     protected static $table_name = "facility";
-    protected static $db_fields = array('id', 'title', 'type', 'number', 'floor', 'capacity', 'available', 'img');
+    protected static $db_fields = array('id', 'title', 'type', 'number', 'floor', 'capacity', 'available', 'img','charges');
     public $id;
     public $title;
     public $type;
@@ -15,6 +15,7 @@ class Facility extends DatabaseObject {
     public $capacity;
     public $available;
     public $img;
+    public $charges;
 
     public static function find_types() {
         global $database;
@@ -83,6 +84,9 @@ class Facility extends DatabaseObject {
                         Available
                     </th>
                     <th class="col-sm-12 col-md-2 ">
+                        Charges
+                    </th>
+                    <th class="col-sm-12 col-md-2 ">
                         Image
                     </th>
                  </tr>
@@ -99,6 +103,7 @@ class Facility extends DatabaseObject {
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->floor . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->capacity . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->available . "</td>"
+                . "<td class=\"col-sm-12 col-md-2\">" . $this->charges . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->avatar() . "</td>"
                 . "</tr>";
     }

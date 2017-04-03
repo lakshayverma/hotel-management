@@ -19,8 +19,9 @@ class DatabaseObject {
         return self::find_by_sql("SELECT * FROM " . static::$table_name);
     }
 
-    public static function find_limited($limit = 10) {
-        return self::find_by_sql("SELECT * FROM " . static::$table_name . " limit $limit");
+    public static function find_limited($limit = 10, $page = 1) {
+        $offset = ($page - 1) * $limit;        
+        return self::find_by_sql("SELECT * FROM " . static::$table_name . " limit $limit offset $offset");
     }
 
     public static function find_by_id($id) {
@@ -152,7 +153,7 @@ class DatabaseObject {
         $sql .= ") VALUES (\"";
         $sql .= join("\", \"", array_values($attributes));
         $sql .= "\")";
-        
+
         if ($database->query($sql)) {
             $this->id = $database->insert_id();
             return true;
@@ -173,7 +174,7 @@ class DatabaseObject {
         }
 
         if ($current_user->is_admin() && $editable) {
-            return "<td class=\"col-sm-12 col-md-2\">"
+            return "<td id=\"record-{$this->id}\"  class=\"col-sm-12 col-md-2\">"
                     . "<form method=\"post\" action=\"./tableForms/delete.php\" class=\"col-md-6\">"
                     . "<button type=\"submit\" class=\"btn btn-small btn-danger\">"
                     . "<span class=\"glyphicon glyphicon-trash\"></span>"
@@ -234,8 +235,8 @@ class DatabaseObject {
     public function img() {
         return $this->image_dir() . DS . $this->img;
     }
-    
-    public function image_source(){
+
+    public function image_source() {
         return $this->image_dir() . DS . $this->img;
     }
 

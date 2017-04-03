@@ -6,17 +6,6 @@ function showPopup(url) {
 }
 
 
-function attend_event(invitation_id, status) {
-    $.post("./logic/attend.php",
-            {
-                invitation_id: invitation_id,
-                status: status
-            },
-            function (response) {
-                $('#invite-' + invitation_id + " div.response").html(response.msg);
-            }, 'json'
-            )
-}
 
 var previous_booking_id;
 function get_details(booking_id,order_more,link_checkout) {
@@ -55,6 +44,7 @@ function jquery_calendar() {
                 check_in.datepicker("option", "maxDate", check_out.val());
             });
     check_in.datepicker("option", "dateFormat", format);
+    check_in.datepicker("option","minDate",0);
     check_out.datepicker("option", "dateFormat", format);
 
     $("#ui-datepicker-div").hide();

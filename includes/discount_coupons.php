@@ -16,6 +16,8 @@ class Discount_coupons extends DatabaseObject {
     public $status;
     public $img;
     public $validObj;
+    
+    const MIN_BILL = 5000;
 
     public function init_members() {
         if (!$this->validObj) {
@@ -59,23 +61,57 @@ class Discount_coupons extends DatabaseObject {
         }
     }
 
+    const RATE_CUTTER = 'rate cutter';
+    const SPECIAL = 'special';
+    const FLAT = 'flat';
+
     public function name() {
+        $min_bill = static::MIN_BILL;
         $typ = strtolower($this->type);
         switch ($typ) {
-            case 'rate cutter':
-                $msg = "₹ " . $this->value . " /- off";
+            case static::RATE_CUTTER:
+                $msg = "₹ " . $this->value . " /- off (minimum bill amount $min_bill)";
                 break;
-            case 'special':
+            case static::SPECIAL:
                 $msg = " discount of " . $this->value . "%";
                 break;
-            case 'flat':
-                $msg = "₹ " . $this->value . " /- off";
+            case static::FLAT:
+                $msg = "FLAT ₹ " . $this->value . " /- off";
                 break;
             default :
                 $msg = ucwords($this->type) . " " . $this->value . " (" . $this->status . ")";
         }
 
         return $this->coupon . " " . $msg . " on your bill.";
+    }
+
+    public function process($amount) {
+        $min_bill = static::MIN_BILL;
+        $typ = strtolower($this->type);
+        switch ($typ) {
+            case static::RATE_CUTTER:
+                $new_amt = $amount - $this->value;
+                if ($new_amt < $min_bill) {
+                    $new_amt = ($amount < $min_bill) ? $amount : $min_bill;
+                }
+
+                break;
+            case static::SPECIAL:
+                $new_amt = $amount - $this->process_percent($amount);
+                break;
+            case static::FLAT:
+                $new_amt = $amount - $this->value;
+                break;
+            default :
+                $new_amt = $amount;
+        }
+        log_action($typ, "$amount => $new_amt");
+        return $new_amt;
+    }
+
+    private function process_percent($amount) {
+        $val = ($this->value * $amount) / 100;
+        return $val;
     }
 
     public function title() {
@@ -108,7 +144,7 @@ class Discount_coupons extends DatabaseObject {
                         Status
                     </th>
                     <th class="col-sm-12 col-md-2 ">
-                        Status
+                        Image
                     </th>
                 </tr>
             </thead>';

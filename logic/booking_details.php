@@ -8,6 +8,10 @@
     if ($current_booking):
         $session->current_booking($current_booking->id);
         $current_booking->init_members();
+        $past_checkout = $current_booking->past_checkout();
+        if ($past_checkout) {
+            $order_more = FALSE;
+        }
         ?>
         <h1 class="panel-heading">
             <?php echo $current_booking->name(); ?>
@@ -30,9 +34,19 @@
             } else {
                 if ($link_checkout) {
                     ?>
-                    <a href="checkout.php" class="btn btn-primary pad-8 mar-8">
-                        Checkout <span class="glyphicon glyphicon-log-out"></span>
+
+                    <?php if ($past_checkout) {
+                        ?>
+                        <p class="alert alert-danger">
+                            You should have checked out by now!
+                        </p>
+                        <?php
+                    }
+                    ?>
+                    <a href = "checkout.php" class = "btn btn-primary pad-8 mar-8">
+                        Checkout <span class = "glyphicon glyphicon-log-out"></span>
                     </a>
+
                     <?php
                 }
                 if ($order_more) {

@@ -25,7 +25,7 @@ $object->init_members();
 
             <div class="form-group col-md-4">
                 <label class="col-form-label" for="coupon">Coupon</label>
-                <input id="coupon" name="coupon" class="form-control" type="number" required value="<?php echo $object->coupon; ?>"/>
+                <input id="coupon" name="coupon" class="form-control" type="text" required value="<?php echo $object->coupon; ?>"/>
             </div>
             <div class="form-group col-md-6">
                 <label class="col-form-label" for="img">Image</label>

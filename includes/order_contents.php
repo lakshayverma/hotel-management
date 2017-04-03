@@ -121,7 +121,7 @@ class Order_contents extends DatabaseObject {
         return "
             <tr class=\"row\">"
                 . $this->table_edit($edit)
-                . "<td class=\"col-sm-12 col-md-2\">" . $this->order_id . "</td>"
+                . "<td class=\"col-sm-12 col-md-2\">" . $this->orderObj->intro() . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->itemObj->intro() . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->quantity . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->status . "</td>"

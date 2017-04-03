@@ -44,7 +44,7 @@ class Booking extends DatabaseObject {
         if (!$this->invoiceObj) {
             $this->invoiceObj = Invoice::find_for_booking($this);
             if ($this->invoiceObj instanceof Invoice && isset($this->invoiceObj->ammount_payable)) {
-                $this->bill = $this->invoiceObj->ammount();
+                $this->bill = $this->invoiceObj->amount();
             }
         }
     }
@@ -58,7 +58,7 @@ class Booking extends DatabaseObject {
         $re = 0;
         $msg = "Not Generated yet ";
         if ($this->invoiceObj instanceof Invoice) {
-            $re = $this->invoiceObj->ammount();
+            $re = $this->invoiceObj->amount();
             $msg = "You paid ";
         } else {
             $re = $this->bill;
@@ -66,6 +66,19 @@ class Booking extends DatabaseObject {
         }
         $res = "{$msg}: ₹ {$re} /-";
         return $res;
+    }
+
+    public function past_checkout() {
+        $this->init_members();
+        $today = strtotime('now');
+        $check_out = strtotime($this->check_out);
+        $datediff = $today - $check_out;
+        $days = floor($datediff / (60 * 60 * 24));
+        if ($days > 1) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
     public function title() {

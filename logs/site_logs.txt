@@ -1,0 +1,123 @@
+2017-04-03 08:57:53 | special 1500 => 30
+2017-04-03 08:57:53 | aa {"coupon":"75","booking":"52","amount":"1500"}
+2017-04-03 08:57:53 | aa {"error":false,"data":[],"bill":30}
+2017-04-03 08:58:04 | rate cutter 1500 => 5000
+2017-04-03 08:58:04 | aa {"coupon":"47","booking":"52","amount":"1500"}
+2017-04-03 08:58:04 | aa {"error":false,"data":[],"bill":5000}
+2017-04-03 08:58:57 | rate cutter 1500 => 1500
+2017-04-03 08:58:57 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 08:58:57 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 08:59:01 | special 1500 => 30
+2017-04-03 08:59:01 | aa {"coupon":"75","booking":"52","amount":"1500"}
+2017-04-03 08:59:01 | aa {"error":false,"data":[],"bill":30}
+2017-04-03 08:59:04 | rate cutter 1500 => 1500
+2017-04-03 08:59:04 | aa {"coupon":"47","booking":"52","amount":"1500"}
+2017-04-03 08:59:04 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 08:59:07 | special 1500 => 75
+2017-04-03 08:59:07 | aa {"coupon":"30","booking":"52","amount":"1500"}
+2017-04-03 08:59:07 | aa {"error":false,"data":[],"bill":75}
+2017-04-03 08:59:08 | rate cutter 1500 => 1500
+2017-04-03 08:59:08 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 08:59:08 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:02:21 | special 1500 => 1470
+2017-04-03 09:02:21 | aa {"coupon":"75","booking":"52","amount":"1500"}
+2017-04-03 09:02:21 | aa {"error":false,"data":[],"bill":1470}
+2017-04-03 09:02:23 | rate cutter 1500 => 1500
+2017-04-03 09:02:23 | aa {"coupon":"47","booking":"52","amount":"1500"}
+2017-04-03 09:02:23 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:02:25 | special 1500 => 1425
+2017-04-03 09:02:25 | aa {"coupon":"30","booking":"52","amount":"1500"}
+2017-04-03 09:02:25 | aa {"error":false,"data":[],"bill":1425}
+2017-04-03 09:02:30 | rate cutter 1500 => 1500
+2017-04-03 09:02:30 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 09:02:30 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:02:46 | flat 1500 => 1498
+2017-04-03 09:02:46 | aa {"coupon":"38","booking":"52","amount":"1500"}
+2017-04-03 09:02:46 | aa {"error":false,"data":[],"bill":1498}
+2017-04-03 09:03:26 | rate cutter 1500 => 1500
+2017-04-03 09:03:26 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 09:03:26 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:03:28 | special 1500 => 1470
+2017-04-03 09:03:28 | aa {"coupon":"75","booking":"52","amount":"1500"}
+2017-04-03 09:03:28 | aa {"error":false,"data":[],"bill":1470}
+2017-04-03 09:03:34 | rate cutter 1500 => 1500
+2017-04-03 09:03:34 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 09:03:34 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:03:36 | special 1500 => 1425
+2017-04-03 09:03:36 | aa {"coupon":"30","booking":"52","amount":"1500"}
+2017-04-03 09:03:36 | aa {"error":false,"data":[],"bill":1425}
+2017-04-03 09:03:57 | special 1500 => 1425
+2017-04-03 09:03:57 | aa {"coupon":"30","booking":"52","amount":"1500"}
+2017-04-03 09:03:57 | aa {"error":false,"data":[],"bill":1425}
+2017-04-03 09:04:13 | flat 1500 => 1498
+2017-04-03 09:04:13 | aa {"coupon":"38","booking":"52","amount":"1500"}
+2017-04-03 09:04:13 | aa {"error":false,"data":[],"bill":1498}
+2017-04-03 09:04:16 | special 1500 => 1470
+2017-04-03 09:04:16 | aa {"coupon":"75","booking":"52","amount":"1500"}
+2017-04-03 09:04:16 | aa {"error":false,"data":[],"bill":1470}
+2017-04-03 09:04:39 | special 1500 => 1425
+2017-04-03 09:04:39 | aa {"coupon":"30","booking":"52","amount":"1500"}
+2017-04-03 09:04:39 | aa {"error":false,"data":[],"bill":1425}
+2017-04-03 09:05:00 | flat 1500 => 1498
+2017-04-03 09:05:00 | aa {"coupon":"38","booking":"52","amount":"1500"}
+2017-04-03 09:05:00 | aa {"error":false,"data":[],"bill":1498}
+2017-04-03 09:05:02 | rate cutter 1500 => 1500
+2017-04-03 09:05:02 | aa {"coupon":"47","booking":"52","amount":"1500"}
+2017-04-03 09:05:02 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 09:05:04 | rate cutter 1500 => 1500
+2017-04-03 09:05:04 | aa {"coupon":"17","booking":"52","amount":"1500"}
+2017-04-03 09:05:04 | aa {"error":false,"data":[],"bill":"1500"}
+2017-04-03 10:19:30 | special 6280 => 4710
+2017-04-03 10:19:30 | aa {"coupon":"37","booking":"30","amount":"6280"}
+2017-04-03 10:19:30 | aa {"error":false,"data":[],"bill":4710}
+2017-04-03 10:19:41 | rate cutter 6280 => 6255
+2017-04-03 10:19:41 | aa {"coupon":"59","booking":"30","amount":"6280"}
+2017-04-03 10:19:41 | aa {"error":false,"data":[],"bill":6255}
+2017-04-03 10:22:32 | rate cutter 2500 => 2500
+2017-04-03 10:22:32 | aa {"coupon":"47","booking":"53","amount":"2500"}
+2017-04-03 10:22:32 | aa {"error":false,"data":[],"bill":"2500"}
+2017-04-03 10:22:37 | flat 2500 => 2498
+2017-04-03 10:22:37 | aa {"coupon":"38","booking":"53","amount":"2500"}
+2017-04-03 10:22:37 | aa {"error":false,"data":[],"bill":2498}
+2017-04-03 10:22:47 | rate cutter 2500 => 2500
+2017-04-03 10:22:47 | aa {"coupon":"17","booking":"53","amount":"2500"}
+2017-04-03 10:22:47 | aa {"error":false,"data":[],"bill":"2500"}
+2017-04-03 10:22:49 | special 2500 => 2450
+2017-04-03 10:22:49 | aa {"coupon":"75","booking":"53","amount":"2500"}
+2017-04-03 10:22:49 | aa {"error":false,"data":[],"bill":2450}
+2017-04-03 10:23:10 | rate cutter 2500 => 2500
+2017-04-03 10:23:10 | aa {"coupon":"47","booking":"53","amount":"2500"}
+2017-04-03 10:23:10 | aa {"error":false,"data":[],"bill":"2500"}
+2017-04-03 10:26:00 | rate cutter 2500 => 2500
+2017-04-03 10:26:00 | aa {"coupon":"47","booking":"53","amount":"2500"}
+2017-04-03 10:26:00 | aa {"error":true,"data":[],"bill":"2500","msg":"You are not eligible for this coupon."}
+2017-04-03 10:26:04 | flat 2500 => 2498
+2017-04-03 10:26:04 | aa {"coupon":"38","booking":"53","amount":"2500"}
+2017-04-03 10:26:04 | aa {"error":false,"data":[],"bill":2498}
+2017-04-03 10:26:23 | special 2500 => 2250
+2017-04-03 10:26:23 | aa {"coupon":"24","booking":"53","amount":"2500"}
+2017-04-03 10:26:23 | aa {"error":false,"data":[],"bill":2250}
+2017-04-03 10:26:41 | rate cutter 2500 => 2500
+2017-04-03 10:26:41 | aa {"coupon":"47","booking":"53","amount":"2500"}
+2017-04-03 10:26:41 | aa {"error":true,"data":[],"bill":"2500","msg":"You are not eligible for this coupon."}
+2017-04-03 10:28:18 | special 2500 => 2450
+2017-04-03 10:28:18 | aa {"coupon":"75","booking":"53","amount":"2500"}
+2017-04-03 10:28:18 | aa {"error":false,"data":[],"bill":2450}
+2017-04-03 10:28:20 | rate cutter 2500 => 2500
+2017-04-03 10:28:20 | aa {"coupon":"47","booking":"53","amount":"2500"}
+2017-04-03 10:28:20 | aa {"error":true,"data":[],"bill":"2500","msg":"You are not eligible for this coupon."}
+2017-04-03 10:29:02 | special 2500 => 2450
+2017-04-03 10:29:02 | aa {"coupon":"75","booking":"53","amount":"2500"}
+2017-04-03 10:29:02 | aa {"error":false,"data":[],"bill":2450}
+2017-04-03 10:29:06 | flat 2500 => 2498
+2017-04-03 10:29:06 | aa {"coupon":"38","booking":"53","amount":"2500"}
+2017-04-03 10:29:06 | aa {"error":false,"data":[],"bill":2498}
+2017-04-03 10:29:09 | special 2500 => 2375
+2017-04-03 10:29:09 | aa {"coupon":"30","booking":"53","amount":"2500"}
+2017-04-03 10:29:09 | aa {"error":false,"data":[],"bill":2375}
+2017-04-03 10:29:13 | rate cutter 2500 => 2500
+2017-04-03 10:29:13 | aa {"coupon":"60","booking":"53","amount":"2500"}
+2017-04-03 10:29:13 | aa {"error":true,"data":[],"bill":"2500","msg":"You are not eligible for this coupon."}
+2017-04-03 10:29:20 | flat 2500 => 2475
+2017-04-03 10:29:20 | aa {"coupon":"11","booking":"53","amount":"2500"}
+2017-04-03 10:29:20 | aa {"error":false,"data":[],"bill":2475}
