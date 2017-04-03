@@ -2,6 +2,13 @@
 $nav_only = FALSE;
 include './layouts/header.php';
 ?>
+<a id="mLocation" href="#hotel_location" class="scroll">
+<!--    <span class="glyphicon glyphicon-home"></span>-->
+    
+    <img src="images/pin.png" width="32px" height="32px"/>
+
+</a>
+
 <div id="about" class="welcome"> 
     <div class="container">
         <div class="agile-title">
@@ -10,22 +17,22 @@ include './layouts/header.php';
         <div class="w3ls-row">
             <div class="col-md-6 welcome-left">
                 <div class="welcome-img">
-                    <img src="images/img1.jpg" class="img-responsive zoom-img" alt=""/>
+                    <img src="hotel_pics/lobby9.jpg" class="img-responsive zoom-img" alt=""/>
                 </div>
                 <div class="col-md-6 welcome-left-grids">
                     <div class="welcome-img">
-                        <img src="images/img2.jpg" class="img-responsive zoom-img" alt=""/>
+                        <img src="hotel_pics/room1.jpg" class="img-responsive zoom-img" alt=""/>
                     </div>
                 </div>
                 <div class="col-md-6 welcome-left-grids">
                     <div class="welcome-img">
-                        <img src="images/img3.jpg" class="img-responsive zoom-img" alt=""/>
+                        <img src="hotel_pics/lobby3.jpg" class="img-responsive zoom-img" alt=""/>
                     </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <div class="col-md-6 welcome-right"> 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt lorem sed velit fermentum lobortis. Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor, vitae pharetra nunc lacinia eget. Nulla ornare purus nunc, ut dapibus leo sodales adipiscing. Praesent sit amet justo diam. Quisque sagittis egestas sem vitae vestibulum. Quisque nec lacus ornare, volutpat arcu in lacinia dolor Itaque earum rerum hic tenetur a sapiente delectus . </p>
+                <p>A good hotel shouldn’t be necessarily expensive. Check this out yourself. Book a room and get all possible comfort of a five star hotel. We work for you to enjoy your stay.</p>
                 <div class="open-hours-row">
                     <div class="col-md-3 open-hours-left">
                         <h4>OPENING HOURS </h4>
@@ -79,7 +86,7 @@ include './layouts/header.php';
                         <img src="<?php echo $item->img(); ?>" alt=""/>
                         <div class="menu-right">
                             <h4><?php echo $item->name(); ?> </h4>
-                            <h5>₹<?php echo $item->price*10; ?> </h5>
+                            <h5>₹<?php echo $item->price * 10; ?> </h5>
                             <p><?php echo $item->description; ?></p>
                         </div>
                     </div>  

@@ -28,7 +28,7 @@
                     <?php if (isset($current_user->id)): ?>
                         <li><a href="my_booking.php">My Bookings</a></li>
                         <?php if ($current_user->is_admin()): ?>
-                            <li><a href="list_tables.php">List Tables</a></li>
+                            <li><a href="list_tables.php">Admin Area</a></li>
                         <?php endif; ?>
                         <li><a href="logout.php">Logout <?php echo $current_user->name(); ?></a></li>
                     <?php else: ?>
