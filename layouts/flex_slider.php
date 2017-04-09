@@ -3,8 +3,10 @@
     <div class="flexslider">
         <ul class="slides">
             <li>
+                <h2>Welcome to <?= strtoupper(SITE_TITLE); ?></h2>
                 <p>
                     Are you on a hunt for perfect family vacation or a business trip getaway?
+                    We are the place of your choice
                 </p>
                 <a href="#" class="more" data-toggle="modal" data-target="#myModal">BOOK NOW</a>  
             </li>
@@ -18,6 +20,7 @@
             <li>
                 <h3>We will be so PROUD to </h3>
                 <p>
+                    Be our GUEST
                 </p>
                 <a href="#" class="more" data-toggle="modal" data-target="#myModal">BOOK NOW</a>
             </li>
