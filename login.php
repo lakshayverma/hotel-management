@@ -28,98 +28,98 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 }
 ?>
 
-<!-- Page Content -->
-<div class="container-fluid">
-    <!-- Heading Row -->
-    <div class="row">
-        <div class="col-md-6">
-            <img class="img-responsive img-rounded" src="/ignou/dependencies/images/wall.jpg" alt="">
-            <div class="row">
-                
-            </div>
-        </div>
+<style>
+form {
+    border: 3px solid #f1f1f1;
+}
 
-        <div class="panel panel-default col-md-4 col-md-offset-1">
-            <h1>Welcome</h1>
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <a href="#" class="btn btn-block btn-primary" id="login-form-link">Login</a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="#" class="btn btn-block" id="register-form-link">Register</a>
-                    </div>
-                </div>            
-                <h6 class="text-danger text-center">
-                    <?php echo $message; ?>
-                </h6>
-            </div>
-            <div class="panel-body">
-                <form id="login-form" method="post" role="form" style="display: block;">
-                    <div class="form-group">
-                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <input id="request_uri" name="request_uri" type="hidden" value="login.php">
-                            <div class="col-sm-6 col-sm-offset-3">
-                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <form id="register-form" action="tableForms/insert.php" enctype="multipart/form-data" method="post" role="form" style="display: none;">
-                    <?php $object = new User; ?>
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label" for="first_name">First Name</label>
-                        <input id="first_name" name="first_name" class="form-control" type="text" required value="<?php echo $object->first_name; ?>"/>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label" for="last_name">Last Name</label>
-                        <input id="last_name" name="last_name" class="form-control" type="text" required value="<?php echo $object->last_name; ?>"/>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="col-form-label" for="user_name">User Name</label>
-                        <input id="user_name" name="user_name" class="form-control" type="text" required value="<?php echo $object->user_name; ?>"/>
-                        <input name="type" value="client" type="hidden">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="col-form-label" for="email">Email</label>
-                        <input id="email" name="email" class="form-control" type="email" required value="<?php echo $object->email; ?>"/>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="col-form-label" for="img">Image</label>
-                        <input id="img" name="img" class="form-control" type="file" accept="image/*" <?php if (!$object->id) echo 'required'; ?>/>
-                    </div>
+input[type=text], input[type=password] {
+    width: 40%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+}
 
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label" for="password">Password</label>
-                        <input id="password" name="password" class="form-control" type="password" required/>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label" for="password2">Repeat Password</label>
-                        <input id="password2" name="password2" class="form-control" type="password" required/>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label class="col-form-label" for="address">Address</label>
-                        <textarea id="address" name="address" class="form-control" required><?php echo $object->address; ?></textarea>
-                    </div>
-                    <div class="row btn-group-vertical col-md-8 col-md-offset-2">
-                        <hr>
-                        <input id="request_uri" name="request_uri" type="hidden" value="<?php echo $session->request_uri(); ?>"/>
-                        <input id="table_name" name="table_name" type="hidden" value="user"/>
-                        <input class="form-control btn btn-primary" type="submit" value="User"/>
-                        <hr>
-                        <input class="form-control btn btn-default" type="reset" value="Clear"/>
-                    </div>
-                </form>
-            </div>
-        </div>
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<DIV class="">
+    <br>
+    <br>
+
+<h2 align="center">Login Form</h2>
+
+<form action="./login.php" method="post">
+  <div class="imgcontainer">
+      <img src="hotel_pics/hotels-4.jpg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+      <div class="col-sm-8 col-sm-offset-4"><b>Username</b>
+    <input type="text" placeholder="Enter Username" name="username" required>
+      </div>
+    
+    
+    <div class="col-sm-8 col-sm-offset-4"><b>Password</b>
+    <input type="password" placeholder="Enter Password" name="password" required>
     </div>
-</div>
+      <div class="col-sm-10 col-sm-offset-4">
+    <button type="submit" >Login</button>
+      </div>
+  </div>
+</form>
+
+</DIV>
+
 <?php include './layouts/footer.php'; ?>
 <script>
     var activeForm = '#login-form';

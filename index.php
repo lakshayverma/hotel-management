@@ -32,22 +32,22 @@ include './layouts/header.php';
                 <div class="clearfix"> </div>
             </div>
             <div class="col-md-6 welcome-right"> 
-                <p>A good hotel shouldn’t be necessarily expensive. Check this out yourself. Book a room and get all possible comfort of a five star hotel. We work for you to enjoy your stay.</p>
+                <p>A good hotel shouldn’t be necessarily expensive. Check this out yourself. Book a room and get all possible comfort of a five star hotel. We work for you to enjoy your stay.A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided may range from a modest-quality mattress in a small room to large suites with bigger, higher-quality beds, a dresser, a fridge and other kitchen facilities, upholstered chairs, a flat screen television and en-suite bathrooms.</p>
                 <div class="open-hours-row">
                     <div class="col-md-3 open-hours-left">
-                        <h4>OPENING HOURS </h4>
+                        <h4>MANN HOTEL</h4>
                     </div>
                     <div class="col-md-3 open-hours-left">
-                        <h6>BREAKFAST</h6>
-                        <h5>7am - 12am</h5> 
+                        <h6>ROOM</h6>
+                        <h5>Starting at Rs 1,500</h5> 
                     </div>
                     <div class="col-md-3 open-hours-left">
-                        <h6>MAIN MENU</h6>
-                        <h5>12am - 12pm</h5> 
+                        <h6>PARTY HALL</h6>
+                        <h5>Starting at Rs 20,000</h5> 
                     </div>
                     <div class="col-md-3 open-hours-left">
-                        <h6>SPECIALS</h6>
-                        <h5>8pm - 11pm</h5> 
+                        <h6>TABLE</h6>
+                        <h5>Starting at Rs 500</h5> 
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -61,10 +61,10 @@ include './layouts/header.php';
 <!-- slid -->
 <div class="slid">
     <div class="container">
-        <h4>Today Special</h4>
-        <h5>50% <span>Offer</span></h5>
+        <h4>Make Your Stay Cool</h4>
+        <h5> Find <span>Offers</span></h5>
         <p>
-            In malesuada accumsan felis, a imperdiet arcu blandit sed. Ut id faucibus eros. Fusce sed vulputate dui, non consectetur felis. Etiam id enim sem. Suspendisse commodo tempor magna 
+            One of the most important things we want to achieve is being the most comfortable, friendly and luxurious travel destination. And we keep it that way for a long time! 
         </p>
     </div> 
 </div>

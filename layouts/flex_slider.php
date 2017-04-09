@@ -3,23 +3,21 @@
     <div class="flexslider">
         <ul class="slides">
             <li>
-                <h2>AMAZING</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipi est Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias phasellus mattis tellus .
+                    Are you on a hunt for perfect family vacation or a business trip getaway?
                 </p>
                 <a href="#" class="more" data-toggle="modal" data-target="#myModal">BOOK NOW</a>  
             </li>
             <li>
-                <h3>GRILLING</h3>
+                <h3>Have a GREAT Time with OUR</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipi est Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias phasellus mattis tellus .
+                    Our Hotel is a perfect holiday destination both for the families with kids and for individuals. Our glorious mountainous landscapes will lighten your stay through all the seasons!
                 </p>
                 <a href="#" class="more" data-toggle="modal" data-target="#myModal">BOOK NOW</a>  
             </li>
             <li>
-                <h3>RECIPES </h3>
+                <h3>We will be so PROUD to </h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipi est Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias phasellus mattis tellus .
                 </p>
                 <a href="#" class="more" data-toggle="modal" data-target="#myModal">BOOK NOW</a>
             </li>

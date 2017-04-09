@@ -28,7 +28,7 @@ body a:hover{
 /*-- banner --*/
 .banner {
     min-height: 780px;
-    background: url(../images/2.jpg)no-repeat center 0px;
+    background: url(../hotel_pics/hotels-1.jpg)no-repeat center 0px;
     background-size: cover;
     position: relative;
 }
@@ -263,7 +263,7 @@ img.zoom-img:hover{
 }
 /*-- slid --*/
 .slid {
-    background: url(../images/2.jpg)no-repeat center 0px;
+    background: url(../hotel_pics/hotels-1.jpg)no-repeat center 0px;
     background-size: cover;
     padding: 5em 0;
     text-align: center;
@@ -1286,6 +1286,7 @@ h4.subheading{
     }
     .banner-text h2, .banner-text h3 { 
         font-size: 3.6em;
+        color: goldenrod;
     }
     .banner-text { 
         padding: 12em 0;
