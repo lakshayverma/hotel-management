@@ -49,6 +49,23 @@ class Booking extends DatabaseObject {
         }
     }
 
+    public function charges() {
+        return $this->stay_period() * $this->facilityObj->charges;
+    }
+
+    public function stay_period($format = '%a') {
+        $this->init_members();
+
+        if ($this->invoiceObj instanceof Invoice) {
+            $datetime2 = new DateTime($this->check_out);
+        } else {
+            $datetime2 = new DateTime();
+        }
+        $datetime1 = new DateTime($this->check_in);
+        $interval = $datetime1->diff($datetime2);
+        return $interval->format($format);
+    }
+
     public function name() {
         $this->init_members();
         return "Booking #{$this->id} by " . $this->accountObj->name(); //. " <small>\"" . $this->check_in() . " to " . $this->check_out() . "\"</small>";
@@ -98,6 +115,39 @@ class Booking extends DatabaseObject {
                 . static::$table_name
                 . " where account=$account order by check_in desc, check_out desc";
         return Booking::find_by_sql($sql);
+    }
+
+    public function settle() {
+        if ($this->id) {
+            $sqlFailed = "UPDATE order_contents"
+                    . " set"
+                    . " order_contents.status ='Failed'"
+                    . " where"
+                    . " order_contents.order_id in"
+                    . " ("
+                    . "select id from order_booking"
+                    . " WHERE"
+                    . " booking = $this->id"
+                    . ")"
+                    . " and"
+                    . " status in ('Booked','Failed')";
+            $sqlDelivered = "UPDATE order_contents"
+                    . " set"
+                    . " order_contents.status ='Delivered'"
+                    . " where"
+                    . " order_contents.order_id in"
+                    . " ("
+                    . "select id from order_booking"
+                    . " WHERE"
+                    . " booking = $this->id"
+                    . ")"
+                    . " and"
+                    . " status not in ('Booked','Failed')";
+
+            global $database;
+            $database->query($sqlFailed);
+            $database->query($sqlDelivered);
+        }
     }
 
     public function renderTableHeader() {

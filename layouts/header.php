@@ -47,12 +47,12 @@ $current_user = $session->get_user_object();
     </head>
     <body>
         <?php if ($session->message()): ?>
-            <div class="container-fluid">
+            <div class="container-fluid" id="page_message">
                 <h4 class="text-danger text-center"><?php echo $session->message(); ?></h4>
             </div>
         <?php endif; ?>
 
-        <div class="banner simple">
+        <div class="banner simple" id="page_header">
 
             <?php if (isset($custom_header) && $custom_header): ?>
             <?php else: ?>

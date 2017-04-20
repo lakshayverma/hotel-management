@@ -1,4 +1,3 @@
-<?php echo 'base is ' . basename($_SERVER["REQUEST_URI"]); ?>
 <div class="header"><!-- header -->
     <div class="container">		
         <nav class="navbar navbar-default">
@@ -28,7 +27,17 @@
                     <?php if (isset($current_user->id)): ?>
                         <li><a href="my_booking.php">My Bookings</a></li>
                         <?php if ($current_user->is_admin()): ?>
-                            <li><a href="list_tables.php">Admin Area</a></li>
+                            <li class="dropdown subnav_container">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrations</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="list_tables.php">Admin Area</a>
+                                    </li>
+                                    <li>
+                                        <a href="booking_updates.php">Booking Orders</a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php endif; ?>
                         <li><a href="logout.php">Logout <?php echo $current_user->name(); ?></a></li>
                     <?php else: ?>

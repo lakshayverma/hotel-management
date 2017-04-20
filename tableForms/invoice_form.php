@@ -58,10 +58,11 @@ $object->init_members();
             <div class="form-group col-md-6">
                 <label class="col-form-label" for="status">Status</label>
                 <select class="form-control" name="status">
-                    <option value="generated">Generated</option>
-                    <option value="paid">Paid</option>
-                    <option value="over due">Over Due</option>
-                    <option value="waived">Waived</option>
+                    <?php
+                    $selected_option = $object->status;
+                    $options = array("Generated","Paid","Over due","Waived");
+                    include './layouts/options_list.php';
+                    ?>
                 </select>
             </div>
 

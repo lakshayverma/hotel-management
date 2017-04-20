@@ -7,6 +7,13 @@ class Order_contents extends DatabaseObject {
 
     protected static $table_name = "order_contents";
     protected static $db_fields = array('id', 'order_id', 'menu_item', 'quantity', 'status');
+
+    const ORDER_BOOKED = 'Booked';
+    const ORDER_UNDER_PROCESS = 'Under Process';
+    const ORDER_ON_THE_WAY = 'On the way';
+    const ORDER_DELIVERED = 'Delivered';
+    const ORDER_FAILED = 'Failed';
+
     public $id;
     public $order_id;
     public $menu_item;
@@ -14,6 +21,11 @@ class Order_contents extends DatabaseObject {
     public $status;
     public $orderObj;
     public $itemObj;
+
+    public function bill() {
+        $this->init_members();
+        return $this->quantity * $this->itemObj->price;
+    }
 
     public static function make($order_id, $menu_item, $quantity) {
         $content = new Order_contents();
@@ -76,17 +88,17 @@ class Order_contents extends DatabaseObject {
     }
 
     public function item_class() {
-        $status = strtolower($this->status);
+        $status = strtoupper($this->status);
 
         switch ($status) {
-            case 'booked':
+            case static::ORDER_BOOKED:
                 return "info";
-            case 'under process':
+            case static::ORDER_UNDER_PROCESS:
             case 'on the way':
                 return "warning";
-            case 'delivered':
+            case static::ORDER_DELIVERED:
                 return "success";
-            case 'failed':
+            case static::ORDER_FAILED:
                 return 'danger';
             default :
                 return "default";
@@ -126,6 +138,17 @@ class Order_contents extends DatabaseObject {
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->quantity . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->status . "</td>"
                 . "</tr>";
+    }
+
+    public static function order_status() {
+        $rs = array();
+        $rs[] = static::ORDER_BOOKED;
+        $rs[] = static::ORDER_UNDER_PROCESS;
+        $rs[] = static::ORDER_ON_THE_WAY;
+        $rs[] = static::ORDER_DELIVERED;
+        $rs[] = static::ORDER_FAILED;
+
+        return $rs;
     }
 
 }

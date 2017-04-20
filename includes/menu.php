@@ -22,7 +22,7 @@ class Menu extends DatabaseObject {
     }
 
     public function name() {
-        return $this->item . "\t--\t" . $this->title();
+        return $this->item . " " . $this->title();
     }
 
     public function title() {

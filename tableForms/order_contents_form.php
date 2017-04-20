@@ -51,10 +51,11 @@ $object->init_members();
                 <label class="col-form-label" for="status">Status</label>
 
                 <select class="form-control" name="status">
-                    <option value="Booked">Booked</option>
-                    <option value="Under Process">Under Process</option>
-                    <option value="On The Way">On The Way</option>
-                    <option value="Delivered">Delivered</option>
+                    <?php
+                    $selected_option = $object->status;
+                    $options = array("Booked","Under Process","On the way","Delivered","Failed");
+                    include './layouts/options_list.php';
+                    ?>
                 </select>
             </div>
 

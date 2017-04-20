@@ -5,10 +5,14 @@ $cpn = (isset($_POST['coupon'])) ? $_POST['coupon'] : FALSE;
 $bkng = (isset($_POST['booking'])) ? $_POST['booking'] : FALSE;
 $amnt = (isset($_POST['amount'])) ? $_POST['amount'] : FALSE;
 
+log_action("cpn",$cpn);
+log_action("bkng",$bkng);
+log_action("amnt",$amnt);
+
 $response = array();
 $response['error'] = TRUE;
 $response['data'] = array();
-if ($cpn && $bkng & $amnt) {
+if ($cpn && $bkng && $amnt) {
     $coupon = Discount_coupons::find_by_id($cpn);
     $bill = $coupon->process($amnt);
     $response['bill'] = $bill;

@@ -1181,6 +1181,9 @@ a.bill:active{
     border-radius: 8px;
     width: 8px;
 }
+::-webkit-scrollbar:horizontal {
+    height: 8px;
+}
 ::-webkit-scrollbar-thumb {
     background: goldenrod;
     border-radius: 8px;
@@ -1258,17 +1261,43 @@ h4.subheading{
 
 
 #to_record {
-  float: right;
-  background: #ffffff;
-  padding: 16px;
-  border: 1px solid;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+    float: right;
+    background: #ffffff;
+    padding: 16px;
+    border: 1px solid;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
 }
 #to_record:after {
-  content: "";
-  clear: both;
+    content: "";
+    clear: both;
 }
+
+
+li.subnav_container ul{
+    color: white;
+    background: black;
+    list-style: none;
+    position: absolute;
+    top: 2em;
+    padding: 2px;
+}
+
+li.subnav_container ul li{
+    padding: 8px;
+}
+li.subnav_container ul li:hover a{
+    color: #ff8c00;
+    background: black;
+}
+
+li.subnav_container ul a,li.subnav_container ul a:hover,li.subnav_container ul a:active{
+    color: white;
+    padding: 4px;
+}
+
+
+
 /*-- responsive-design --*/
 @media(max-width:1440px){
     .contact-right input[type="text"] {

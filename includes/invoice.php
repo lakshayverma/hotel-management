@@ -15,11 +15,38 @@ class Invoice extends DatabaseObject {
     public $amount_payable;
     public $status;
     public $bookingObj;
+    public $discountObj;
+
+    public function name() {
+        $this->init_members();
+        return "Invoice #$this->id for " . $this->bookingObj->name();
+    }
 
     public function init_members() {
         if (!$this->bookingObj && isset($this->booking)) {
             $this->bookingObj = Booking::find_by_id($this->booking);
             $this->bookingObj->init_members();
+        }
+        
+        if (!$this->discountObj && isset($this->discount)) {
+            $this->discountObj = Discount_coupons::find_by_id($this->discount);
+            $this->discountObj->init_members();
+        }
+    }
+    
+    public function status(){
+        switch (strtolower($this->status)){
+            case "paid":
+                return "Your bill has been fully paid.";
+                
+            case "over due":
+                return "Please pay the amount at reception.";
+                
+            case "Waived":
+                return "Your bill is on the house.";
+                
+            default :
+                return "Your invoice is in $this->status stage." ;
         }
     }
 
@@ -46,9 +73,10 @@ class Invoice extends DatabaseObject {
 
     public static function make_for_booking($booking) {
         $invoice = new Invoice();
+        $invoice->booking = $booking->id;
         $orders_in = Order_booking::find_completed_for_booking($booking);
-        $invoice->total_amount = $orders_in['bill'];
-        $invoice->amount_payable = $orders_in['bill'];
+        $invoice->total_amount = $orders_in['bill'] + $booking->charges();
+        $invoice->amount_payable = $orders_in['bill'] + $booking->charges();
         return $invoice;
     }
 
@@ -93,7 +121,7 @@ class Invoice extends DatabaseObject {
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->bookingObj->intro() . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->generation_date() . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->total_amount . "</td>"
-                . "<td class=\"col-sm-12 col-md-2\">" . $this->discount . "</td>"
+                . "<td class=\"col-sm-12 col-md-2\">" . $this->discountObj->intro() . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->amount_payable . "</td>"
                 . "<td class=\"col-sm-12 col-md-2\">" . $this->status . "</td>"
                 . "</tr>";

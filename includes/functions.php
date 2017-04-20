@@ -179,5 +179,9 @@ function create_input_element($name, $type, $default, $classes) {
     }
     return $string;
 }
+
+function form_date_time(){
+    return date("Y-m-d") . 'T' . date("h:i:s");
+}
 ?>
 

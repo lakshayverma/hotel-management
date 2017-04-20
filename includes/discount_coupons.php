@@ -17,7 +17,7 @@ class Discount_coupons extends DatabaseObject {
     public $img;
     public $validObj;
     
-    const MIN_BILL = 5000;
+    const MIN_BILL = 15000;
 
     public function init_members() {
         if (!$this->validObj) {
@@ -106,7 +106,7 @@ class Discount_coupons extends DatabaseObject {
                 $new_amt = $amount;
         }
         log_action($typ, "$amount => $new_amt");
-        return $new_amt;
+        return floor($new_amt);
     }
 
     private function process_percent($amount) {

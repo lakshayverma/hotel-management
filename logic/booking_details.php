@@ -30,6 +30,8 @@
                     </strong>
                     ==
                 </h4>
+
+                <a target="_newWindow" href="view_bill.php?bill=<?= $current_booking->invoiceObj->id; ?>" class="btn btn-primary btn-sm">View Invoice</a>
                 <?php
             } else {
                 if ($link_checkout) {
@@ -82,7 +84,24 @@
                                         <?php echo $menu_item->name(); ?>
                                     </span>
                                     Quantity:<strong> <?php echo $menu_item->quantity; ?></strong>
-                                    <small>Status: <em>(<?php echo $menu_item->status; ?></em>)</small>
+                                    <?php
+                                    if (isset($_POST['editing']) && $_POST['editing'] == 'true'):
+                                        ?>
+                                        <select id="menu_order_<?= $menu_item->id; ?>" onchange="change_order_status(this);">
+                                            <?php
+                                            $options = Order_contents::order_status();
+                                            $selected_option = $menu_item->status;
+                                            include '../layouts/options_list.php';
+                                            ?>
+                                        </select>
+                                        <div style="display: inline-block;" id="text_<?= $menu_item->id; ?>"></div>
+
+                                        <?php
+                                    else:
+                                        ?>
+                                        <small>Status: <em>(<?php echo $menu_item->status; ?></em>)</small>
+
+                                    <?php endif; ?>
                                 </li>
                                 <?php
                                 next($order->contents);
@@ -100,3 +119,36 @@
         <h1>Select a valid booking....</h1>
     <?php endif; ?>
 </article>
+
+
+<script>
+
+    var current_or;
+    var order_id;
+    function change_order_status(order) {
+        current_or = order.id;
+        order_id = current_or.substr(current_or.lastIndexOf("_") + 1, current_or.length);
+        url = "./logic/update_order.php";
+        data = {
+            content_id: order_id,
+            content_status: $("#" + current_or).val()
+        };
+
+        $.post(url, data, function (response) {
+            console.log(response.updated);
+            console.log(response);
+            var span = "#text_" + order_id;
+            console.log(span);
+            var html;
+            if (response.updated) {
+                html = "<span class=\"text-success\">Updated " + order_id + "</span>";
+                $(span).html(html);
+            } else {
+                html = "<span class=\"text-danger\">Failed" + order_id + "</span>";
+                $(span).html(html);
+            }
+        }, "json");
+
+
+    }
+</script>

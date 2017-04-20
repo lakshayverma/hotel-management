@@ -35,7 +35,7 @@ if ($current_booking->id):
                         <tr>
                             <td>
                                 Billed Amount
-                                <em>(Items that were delivered)</em>
+                                <em>(Items that were delivered + Room Charges)</em>
                             </td>
                             <td>
                                 <?= SITE_CURRENCY . $invoice->total_amount . "/-"; ?>
@@ -70,6 +70,9 @@ if ($current_booking->id):
                                             $.post(url, data, function (data) {
                                                 if (!data.error) {
                                                     var am = "₹" + data.bill + "/-";
+                                                    
+                                                    $("#coupon_id").val(cpn);
+                                                    $("#amount").val(data.bill);
 
                                                     $(".ammount_payable").html(am);
                                                 } else {
@@ -100,10 +103,15 @@ if ($current_booking->id):
                                 </a>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-check"></span>
-                                    Pay <span class="ammount_payable"><?= SITE_CURRENCY . $invoice->amount() . "/-"; ?></span>
-                                </button>
+                                <form action="./logic/checkout.php" method="post">
+                                    <input id="amount" name="amount" type="text"/>
+                                    <input id="coupon_id" name="coupon_id" type="text"/>
+                                    <input id="booking_id" name="booking_id" type="text" value="<?=$current_booking->id;?>"/>
+                                    <button type="submit" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-check"></span>
+                                        Pay <span class="ammount_payable"><?= SITE_CURRENCY . $invoice->amount() . "/-"; ?></span>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </table>
@@ -111,7 +119,6 @@ if ($current_booking->id):
             </div>
         </article>
     </section>
-
 <?php endif; ?>
 <script>
     get_details(<?php echo $current_booking->id; ?>, false, false);
