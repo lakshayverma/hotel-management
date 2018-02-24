@@ -104,9 +104,9 @@ if ($current_booking->id):
                             </td>
                             <td>
                                 <form action="./logic/checkout.php" method="post">
-                                    <input id="amount" name="amount" type="text"/>
-                                    <input id="coupon_id" name="coupon_id" type="text"/>
-                                    <input id="booking_id" name="booking_id" type="text" value="<?=$current_booking->id;?>"/>
+                                    <input id="amount" name="amount" type="hidden"/>
+                                    <input id="coupon_id" name="coupon_id" type="hidden"/>
+                                    <input id="booking_id" name="booking_id" type="hidden" value="<?=$current_booking->id;?>"/>
                                     <button type="submit" class="btn btn-primary">
                                         <span class="glyphicon glyphicon-check"></span>
                                         Pay <span class="ammount_payable"><?= SITE_CURRENCY . $invoice->amount() . "/-"; ?></span>

@@ -42,6 +42,10 @@
                     <div id="quantity">
                         Select a Menu Item to continue...
                     </div>
+                    
+                    <em class="text-info">
+                        Once the order is Under Process it can not be canceled.
+                    </em>
                 </div>
                 <input name="booking" type="hidden" readonly value="<?php echo $current_booking->id; ?>"/>
                 <input name="redirect_url" type="hidden" readonly value="<?php echo $_SERVER["SERVER_NAME"] . "/mannhotel/my_booking.php"; ?>"/>
